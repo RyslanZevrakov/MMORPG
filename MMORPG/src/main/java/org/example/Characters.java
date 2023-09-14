@@ -1,11 +1,48 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Characters {
     Berserk berserk = new Berserk();
     Hunter hunter = new Hunter();
     Wizard wizard = new Wizard();
+    private ArrayList<Account> accounts = new ArrayList<>();
+    private void addAccount(Account account) {
+        accounts.add(account);
+    }
+    private void loadAccounts() {
+        Account account = new Account("Шут", "1234");
+       addAccount(account);
+    }
+    public void startGame() {
+        loadAccounts();
+
+        if (useScanner("Введите логин: ").equals(accounts.get(0).Login())) {
+            checkPassword();
+        }
+        else {
+            System.out.println("Неверный логин. Попробуйте ещё раз.");
+            startGame();
+        }
+    }
+
+    private void checkPassword() {
+        if (useScanner("Введите пароль: ").equals(accounts.get(0).Password())){
+
+        }
+        else {
+            System.out.println("Неверный пароль. Попробуйте ещё раз.");
+            checkPassword();
+        }
+    }
+    private String useScanner(String message) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println(message);
+
+        return scanner.nextLine();
+    }
 
     public void characters()
             throws java.io.IOException {

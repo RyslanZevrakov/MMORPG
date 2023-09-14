@@ -1,11 +1,15 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public interface Skills {
-    public void sirstSkill();
-
-    public void secondSkill();
-
-    public void thirdSkill();
+    void addSkills(ArrayList<String> skills);
 
 
+
+    void sirstSkill();
+
+    void secondSkill();
+
+    void thirdSkill();
 }

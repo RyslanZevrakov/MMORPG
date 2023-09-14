@@ -1,14 +1,12 @@
 package org.example;
 
-import com.sun.jdi.connect.spi.TransportService;
-
-import java.util.Random;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Berserk implements Skills {
 
 
-    int numder = (int) (Math.random() * 4)+2 ;
+    int numder = (int) (Math.random() * 4) + 2;
 
     public void berserk() throws java.io.IOException {
         System.out.println("Информация");
@@ -25,7 +23,7 @@ public class Berserk implements Skills {
 
         switch (choice) {
             case 1:
-                sirstSkill();
+                sirstSkill( );
                 break;
             case 2:
                 secondSkill();
@@ -36,29 +34,42 @@ public class Berserk implements Skills {
 
         }
     }
+    public ArrayList<String> getSkills() {
+        return skills;
+    }
+    private ArrayList<String> skills;
+    @Override
+    public void addSkills(ArrayList<String> skills) {
+        skills.add("Ярость");
+        skills.add("Рассечение");
+        skills.add("Рывок");
+    }
 
+    @Override
     public void sirstSkill() {
 
         if (numder == 3) {
-            System.out.println("Спасобность сработала");
+            System.out.println("Спасобность " + getSkills().get(0) + " сработала");
         } else {
-            System.out.println("Спасобность не сработала");
+            System.out.println("Спасобность " + getSkills().get(0) + " не сработала");
         }
     }
 
+    @Override
     public void secondSkill() {
         if (numder == 4) {
-            System.out.println("Спасобность сработала");
+            System.out.println("Спасобность " + getSkills().get(1) + " сработала");
         } else {
-            System.out.println("Спасобность не сработала");
+            System.out.println("Спасобность " + getSkills().get(1) + " не сработала");
         }
     }
 
+    @Override
     public void thirdSkill() {
         if (numder == 5) {
-            System.out.println("Спасобность сработала");
+            System.out.println("Спасобность " + getSkills().get(2) + " сработала");
         } else {
-            System.out.println("Спасобность не сработала");
+            System.out.println("Спасобность " + getSkills().get(2) + " не сработала");
         }
     }
 
