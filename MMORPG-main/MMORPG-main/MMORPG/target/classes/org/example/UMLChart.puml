@@ -1,0 +1,59 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Account{
+ArrayList<Hero> heroes
+Login()
+Password()
+Heroes()
+addHero(Hero hero)
+}
+class Berserk implements Skills{
+ sirstSkill()
+ secondSkill()
+ thirdSkill()
+}
+class Characters{
+ Berserk[] berserk
+ Hunter[] hunter
+ Wizard[] wizard
+ ArrayList<Account> accounts
+ addAccount(Account account)
+ loadAccounts()
+ startGame()
+ checkPassword()
+ useScanner(String message)
+ characters() throws IOException
+
+}
+class Hero{
+Hero()
+ArrayList<String> getSkills()
+}
+class Hunter implements Skills{
+ sirstSkill()
+ secondSkill()
+ thirdSkill()
+}
+class Main{
+main(String[] args) throws IOException
+Characters[] characters
+}
+class Wizard implements Skills{
+ sirstSkill()
+ secondSkill()
+ thirdSkill()
+}
+Interface Skills{
+addSkills(ArrayList<String> var1)
+ sirstSkill()
+ secondSkill()
+ thirdSkill()
+}
+Characters --|> Wizard
+Characters --|> Hunter
+Characters --|> Berserk
+Main --|> Characters
+Hero <|-- Account
+Account <|-- Characters
+@enduml
